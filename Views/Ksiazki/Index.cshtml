@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BibliotekaProgmat.Models.Ksiazka>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataWydania)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nazwa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Autor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataWydania)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Idksiazki })
+            @Html.ActionLink("Details", "Details", new { id = item.Idksiazki })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Idksiazki })
+            @Html.ActionLink("Lista Rezerwacji", "ListaRezerwacji", new { id = item.Idksiazki })
+            @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Zarezerwuj", "Zarezerwuj", new { id = item.Idksiazki })
+            }
+        </td>
+    </tr>
+}
+
+</table>

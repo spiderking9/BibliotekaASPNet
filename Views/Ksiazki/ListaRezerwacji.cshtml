@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BibliotekaProgmat.Models.Rezerwacja>
+
+@{
+    ViewBag.Title = "Lista Rezerwacji";
+}
+
+<h2>Rezerwacje dla ksiazki @ViewBag.Ksiazka</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdRezerwacji)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataRezerwacji)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRezerwacji)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataRezerwacji)
+        </td>
+    </tr>
+}
+
+</table>
